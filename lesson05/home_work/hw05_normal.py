@@ -13,3 +13,46 @@
 # Для решения данной задачи используйте алгоритмы из задания easy,
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
+import hw05_easy
+import os
+
+def choce_act():
+    n_act = int(input('Выбирите действие:\n' +
+                       '1. Перейти в папку\n' +
+                       '2. Просмотреть содержимое текущей папки\n' +
+                       '3. Удалить папку\n' +
+                       '4. Создать папку\n'))
+    return n_act
+
+def choce_dir(n_act):
+    if n_act == 1:
+        dirs = hw05_easy.print_all_dir()
+        ndir = int(input('Номер выбранной папки: '))
+        os.chdir('./' + dirs[ndir-1])
+    elif n_act == 2:
+        print(os.listdir('./'))
+    elif n_act == 3:
+        dirs = hw05_easy.print_all_dir()
+        ndir = int(input('Номер выбранной папки: '))
+        os.rmdir(dirs[ndir-1])
+    elif n_act == 4:
+        dir_name = input('Введите название папки (без кавычек): ')
+        os.mkdir(dir_name)
+    return 0
+
+def print_res(n_act,res):
+    if res:
+        print('Успешно')
+    else:
+        print('Не получилось')
+    return 0
+
+while True:
+    n_act = choce_act()
+    try:
+        choce_dir(n_act)
+        print_res(n_act,True)
+    except:
+        print_res(n_act,False)
+    if input('Хотите повторить (1-да, 2-нет)?  ') != '1':
+        break
