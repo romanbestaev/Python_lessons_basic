@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+﻿#!/usr/bin/python3
 
 """
 == Лото ==
@@ -129,37 +129,3 @@ if LotoCardUser.status == 1:
         print('Вы выйграли')
 else:
     print('Вы проиграли')
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
