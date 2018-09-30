@@ -76,9 +76,10 @@ class LotoCard:
         self.name = name
         self.field = ['' for _ in range(9*3)]
         positions = []
-        for x in range(3):
-            positions.extend(random.sample(range(x*9,(x+1)*9),5))
         numbers = random.sample(range(1,91),15)
+        for x in range(3):
+            positions.extend(sorted(random.sample(range(x*9,(x+1)*9),5)))
+            numbers[x*5:(x+1)*5] = sorted(numbers[x*5:(x+1)*5])
         for i in positions:
             self.field[i] = numbers.pop(0)
     
